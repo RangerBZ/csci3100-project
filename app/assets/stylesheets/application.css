@@ -8,3 +8,63 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.center-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 2rem;
+}
+
+.item h1{
+    margin-top: 20px;
+    margin-left: 30px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.item p{
+    margin-top: 10px;
+    margin-left: 30px;
+    font-size: x-large;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.item-head{
+    background:rgb(21, 128, 190);
+    height: 10px;
+    width: 100%;
+}
+
+.item-btn{
+    margin-left: 30px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    background-color: #0d6efd;
+    color: white;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+}
+
+.table tbody td {
+    background-color: #d8eff3;
+    border-bottom: 1px solid #dee2e6;
+    transition: background-color 0.2s ease;
+}
+
+.table tbody td:hover {
+    background-color: #bfe8ee;
+}
+
+.form-element {
+    font-size: large;
+    width: 30%;
+    margin-left: 30px;
+}

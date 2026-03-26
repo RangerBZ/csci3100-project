@@ -7,3 +7,74 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Item.destroy_all
+User.destroy_all
+
+# 创建用户（卖家）
+users = User.create!([
+  {
+    name: "user1",
+    email: "user1@example.com",
+    password: "123456",
+    location: "SHHO",
+    created_at: Time.current
+  },
+  {
+    name: "user2",
+    email: "user2@example.com",
+    password: "233333",
+    location: "UC",
+    created_at: Time.current
+  },
+  {
+    name: "user3",
+    email: "user3@example.com",
+    password: "66666",
+    location: "SHAW",
+    created_at: Time.current
+  }
+])
+
+Item.create!([
+  {
+    name: "Laptop",
+    description: "512G, Mac PRO",
+    price: 6666.00,
+    post_date: "2025-03-06",
+    category: "eletronics",
+    seller_id: users[1].id
+  },
+  {
+    name: "Bicycle",
+    description: "Latest Design",
+    price: 500.00,
+    post_date: "2022-08-12",
+    category: "sports",
+    seller_id: users[0].id
+  },
+  {
+    name: "Guitar",
+    description: "YAMAHA Brand",
+    price: 1200.00,
+    post_date: "2022-06-13",
+    category: "other",
+    seller_id: users[1].id
+  },
+  {
+    name: "Lamp",
+    description: "LED and eye-protective",
+    price: 120.00,
+    post_date: "2023-09-01",
+    category: "furniture",
+    seller_id: users[2].id
+  },
+  {
+    name: "Novel",
+    description: "Nobel Prize Winner",
+    price: 40.00,
+    post_date: "2026-02-25",
+    category: "books",
+    seller_id: users[0].id
+  }
+])

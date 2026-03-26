@@ -1,8 +1,45 @@
-<h1>Marketplace</h1>
+<h1 class="mb-3 center-title">Marketplace</h1>
 
-<div>
-  <% @items.each do |item| %>
-    <%= render item %>
-    <p><%= link_to "Show this item", item %></p>
-  <% end %>
-</div>
+<table class="table table-hover" id="items-table" aria-label="List of items">
+  <thead>
+    <tr>
+      <th scope="col" class="select-col">
+        <span class="visually-hidden">Select</span>
+      </th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Post Date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr id="item-row-<%= item.id %>">
+        <td>
+          <input type="checkbox" class="form-check-input item-checkbox"
+                 id="item-check-<%= item.id %>"
+                 value="<%= item.id %>"
+                 aria-label="Select <%= item.name %>">
+        </td>
+        <td>
+          <strong><%= item.name %></strong>
+        </td>
+        <td>
+          <% if item.category.present? %>
+            <span class="badge bg-info"><%= item.category %></span>
+          <% end %>
+        </td>
+        <td><%= item.price %></td>
+        <td>
+          <%= item.post_date %>
+        </td>
+        <td>
+          <%= link_to "Show this item", item %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Post my own item", new_item_path, class: "btn btn-success", style: "float: right; margin-right: 20px" %>

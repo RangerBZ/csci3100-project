@@ -1,0 +1,51 @@
+<%= form_with(model: item, local: true, multipart: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+      <ul>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 form-element">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 form-element">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 form-element">
+    <%= form.label :category, class: "form-label" %>
+    <%= form.select :category, 
+        options_for_select([
+          ["Electronics", "electronics"],
+          ["Furniture", "furniture"],
+          ["Clothing", "clothing"],
+          ["Books", "books"],
+          ["Sports", "sports"],
+          ["Other", "other"]
+        ], item.category),
+        { include_blank: "Select a category" },
+        { class: "form-select" } %>
+  </div>
+
+  <div class="mb-3 form-element">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.number_field :price, step: 0.1, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 form-element">
+    <%= form.label :seller_name, class: "form-label" %>
+    <%= form.text_field :seller_name, class: "form-control", placeholder: "Enter seller name" %>
+  </div>
+
+  <div>
+    <%= form.submit "Post item", class: "btn btn-outline-success item-btn" %>
+  </div>
+<% end %>
