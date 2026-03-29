@@ -3,10 +3,24 @@
 
   <div class='item-head'></div>
 
-  <p>description: <%= item.description %></p>
-  <p>price: $<%= item.price %></p>
-  <p>post date: <%= item.post_date %></p>
-  <p>seller: <%= item.seller.name %></p>
+  <div class='flex-container'>
+    <div class='left'>
+      <p>description: <%= item.description %></p>
+      <p>price: $<%= item.price %></p>
+      <p>post date: <%= item.post_date %></p>
+      <p>seller: <%= item.seller.name %></p>
+      
+      <%= link_to 'Back to items', items_path, class: "btn btn-outline-info item-btn" %>
+    </div>
 
-  <%= link_to 'Back to items', items_path, class: "btn btn-outline-info item-btn" %>
+    <div class='right'>
+      <% if @item.photo.attached? %>
+      <%= image_tag @item.photo, class: "img-fluid", style: "max-width: 400px" %>
+      
+      <% else %>
+      <p>No image available</p>
+      <% end %>
+    </div>
+
+  </div>
 </div>

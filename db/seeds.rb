@@ -11,7 +11,6 @@
 Item.destroy_all
 User.destroy_all
 
-# 创建用户（卖家）
 users = User.create!([
   {
     name: "user1",
@@ -36,14 +35,15 @@ users = User.create!([
   }
 ])
 
-Item.create!([
+items = [
   {
     name: "Laptop",
-    description: "512G, Mac PRO",
+    description: "512G, Macbook PRO",
     price: 6666.00,
     post_date: "2025-03-06",
     category: "eletronics",
-    seller_id: users[1].id
+    seller_id: users[1].id,
+    image_path: "app/assets/images/macbook.jpeg"
   },
   {
     name: "Bicycle",
@@ -51,7 +51,8 @@ Item.create!([
     price: 500.00,
     post_date: "2022-08-12",
     category: "sports",
-    seller_id: users[0].id
+    seller_id: users[0].id,
+    image_path: "app/assets/images/bicycle.jpeg"
   },
   {
     name: "Guitar",
@@ -59,7 +60,8 @@ Item.create!([
     price: 1200.00,
     post_date: "2022-06-13",
     category: "other",
-    seller_id: users[1].id
+    seller_id: users[1].id,
+    image_path: "app/assets/images/guitar.jpeg"
   },
   {
     name: "Lamp",
@@ -67,7 +69,8 @@ Item.create!([
     price: 120.00,
     post_date: "2023-09-01",
     category: "furniture",
-    seller_id: users[2].id
+    seller_id: users[2].id,
+    image_path: "app/assets/images/lamp.jpeg"
   },
   {
     name: "Novel",
@@ -75,6 +78,28 @@ Item.create!([
     price: 40.00,
     post_date: "2026-02-25",
     category: "books",
-    seller_id: users[0].id
+    seller_id: users[0].id,
+    image_path: "app/assets/images/novel.jpeg"
   }
-])
+]
+
+items.each do |data|
+  item = Item.create!(
+    name: data[:name],
+    description: data[:description],
+    price: data[:price],
+    post_date: data[:post_date],
+    category: data[:category],
+    seller_id: data[:seller_id]
+  )
+  
+  if File.exist?(data[:image_path])
+    item.photo.attach(
+      io: File.open(data[:image_path]),
+      filename: File.basename(data[:image_path]),
+      content_type: "image/jpeg"
+    )
+  else
+    puts "Image not found: #{data[:image_path]}"
+  end
+end

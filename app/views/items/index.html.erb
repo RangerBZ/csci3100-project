@@ -1,45 +1,40 @@
-<h1 class="mb-3 center-title">Marketplace</h1>
+<div class="head-title">
+  <h1>✨ Marketplace</h1>
+  <p>Discover amazing items from our community!</p>
+</div>
 
-<table class="table table-hover" id="items-table" aria-label="List of items">
-  <thead>
-    <tr>
-      <th scope="col" class="select-col">
-        <span class="visually-hidden">Select</span>
-      </th>
-      <th scope="col">Name</th>
-      <th scope="col">Category</th>
-      <th scope="col">Price</th>
-      <th scope="col">Post Date</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr id="item-row-<%= item.id %>">
-        <td>
-          <input type="checkbox" class="form-check-input item-checkbox"
-                 id="item-check-<%= item.id %>"
-                 value="<%= item.id %>"
-                 aria-label="Select <%= item.name %>">
-        </td>
-        <td>
-          <strong><%= item.name %></strong>
-        </td>
-        <td>
-          <% if item.category.present? %>
-            <span class="badge bg-info"><%= item.category %></span>
-          <% end %>
-        </td>
-        <td><%= item.price %></td>
-        <td>
-          <%= item.post_date %>
-        </td>
-        <td>
-          <%= link_to "Show this item", item %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="items-grid" id="items-grid">
+  <% @items.each do |item| %>
+    <div class="item-card" data-item-id="<%= item.id %>" data-category="<%= item.category %>" data-name="<%= item.name.downcase %>">
+      <div class="card-head">
+        <div class="card-checkbox">
+          <input type="checkbox" class="item-checkbox" value="<%= item.id %>">
+        </div>
+        <div class="card-badge">
+          <%= item.category %>
+        </div>
+      </div>
 
-<%= link_to "Post my own item", new_item_path, class: "btn btn-success", style: "float: right; margin-right: 20px" %>
+      <div class="card-content">
+        <h3 class="card-title"><%= item.name %></h3>
+        <p class="card-description"><%= truncate(item.description, length: 50) %></p>
+        <div class="card-price">$<%= item.price %></div>
+        <div class="card-meta">
+          <div class="seller-info">
+            <span><%= item.seller.name || "Unknown" %></span>
+          </div>
+          <div>
+            📅 <%= item.post_date %>
+          </div>
+        </div>
+        <div class="card-link">
+          <%= link_to "more info ->", item %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div style="display:flex; justify-content: center">
+  <%= link_to "Post my own item", new_item_path, class: "post-btn" %>
+</div>

@@ -37,12 +37,18 @@
 
   <div class="mb-3 form-element">
     <%= form.label :price, class: "form-label" %>
-    <%= form.number_field :price, step: 0.1, class: "form-control" %>
+    <%= form.number_field :price, step: 1, class: "form-control" %>
   </div>
 
   <div class="mb-3 form-element">
     <%= form.label :seller_name, class: "form-label" %>
-    <%= form.text_field :seller_name, class: "form-control", placeholder: "Enter seller name" %>
+    <%= form.text_field :seller_name, class: "form-control", placeholder: "Enter your name" %>
+  </div>
+
+  <div class="mb-3 form-element">
+    <%= form.label :photo, "Upload image", class: "form-label" %>
+    <%= form.file_field :photo, class: "form-control", accept: "image/*" %>
+    <div class="form-text">Accepted formats: JPG, PNG, GIF (Max 5MB)</div>
   </div>
 
   <div>

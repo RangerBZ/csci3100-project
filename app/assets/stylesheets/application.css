@@ -9,16 +9,23 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
-.center-title {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 2rem;
+.head-title {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .item h1{
     margin-top: 20px;
     margin-left: 30px;
-    text-align: left;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -39,32 +46,153 @@
     margin-left: 30px;
 }
 
-.table {
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.item-card {
     width: 100%;
-    margin-bottom: 1rem;
-    background-color: transparent;
-    border-collapse: collapse;
+    min-width: 0;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
 }
 
-.table thead th {
-    background-color: #0d6efd;
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.card-head {
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+    background: #d0e0e2;
+}
+
+.item-card:hover {
+    transform: scale(1.05);
+}
+
+.card-checkbox {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.card-checkbox input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.7);
     color: white;
-    padding: 12px;
-    border: 1px solid #dee2e6;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
 }
 
-.table tbody td {
-    background-color: #d8eff3;
-    border-bottom: 1px solid #dee2e6;
-    transition: background-color 0.2s ease;
+.card-content {
+    padding: 20px;
 }
 
-.table tbody td:hover {
-    background-color: #bfe8ee;
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+.card-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.seller-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-link {
+    font-size: 0.85rem;
+    margin-right: 10px;
+    text-align: right;
 }
 
 .form-element {
     font-size: large;
     width: 30%;
     margin-left: 30px;
+}
+
+.flex-container {
+    display: flex;
+    gap: 20px;
+}
+  
+.left {
+    flex: 1;
+    margin-left: 10%;
+}
+
+.right {
+    flex: 1;
+}
+
+.post-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.post-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    color: white;
 }
