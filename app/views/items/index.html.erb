@@ -1,5 +1,18 @@
 <div class="head-title">
-  <h1>✨ Marketplace</h1>
+  <div>
+    <h1>Marketplace</h1>
+    <p>Discover trusted second-hand deals from the CUHK community.</p>
+  </div>
+
+  <div class="market-summary">
+    <div class="summary-chip">
+      <span class="summary-label">Items Listed</span>
+      <strong><%= @items.count %></strong>
+    </div>
+    <div class="summary-chip">
+      <span class="summary-label">Campus Scope</span>
+      <strong>CUHK Only</strong>
+    </div>
   <div class="user-actions">
     <p style="font-size: 1.25rem; font-weight: 600; margin-right:40px"> Hello <%= @user.name %>! <p>
     <div class="dropdown">
@@ -8,6 +21,70 @@
     </div>
   </div>
 </div>
+</div> 
+    
+<section class="market-toolbar">
+  <%= form_with url: items_path, method: :get, local: true, class: "filter-form" do %>
+    <div class="filter-grid">
+      <div class="filter-field filter-field-wide">
+        <label for="keyword">Search</label>
+        <%= text_field_tag :keyword, params[:keyword], id: "keyword", class: "filter-input", placeholder: "Search by item name, keyword or seller" %>
+      </div>
+
+      <div class="filter-field">
+        <label for="category">Category</label>
+        <%= select_tag :category,
+          options_for_select([
+            ["All categories", ""],
+            ["Electronics", "electronics"],
+            ["Furniture", "furniture"],
+            ["Clothing", "clothing"],
+            ["Books", "books"],
+            ["Sports", "sports"],
+            ["Other", "other"]
+          ], params[:category]),
+          id: "category",
+          class: "filter-select" %>
+      </div>
+
+      <div class="filter-field">
+        <label for="status">Status</label>
+        <%= select_tag :status,
+          options_for_select([
+            ["Any status", ""],
+            ["Available", "available"],
+            ["Reserved", "reserved"],
+            ["Sold", "sold"]
+          ], params[:status]),
+          id: "status",
+          class: "filter-select" %>
+      </div>
+
+      <div class="filter-field">
+        <label for="min_price">Min Price</label>
+        <%= number_field_tag :min_price, params[:min_price], id: "min_price", class: "filter-input", placeholder: "0", min: 0 %>
+      </div>
+
+      <div class="filter-field">
+        <label for="max_price">Max Price</label>
+        <%= number_field_tag :max_price, params[:max_price], id: "max_price", class: "filter-input", placeholder: "5000", min: 0 %>
+      </div>
+    </div>
+
+    <div class="quick-filters">
+      <span class="quick-filters-label">Popular filters</span>
+      <button class="quick-filter-pill" type="button">Under $100</button>
+      <button class="quick-filter-pill" type="button">Available Now</button>
+      <button class="quick-filter-pill" type="button">Books & Notes</button>
+      <button class="quick-filter-pill" type="button">Dorm Pick-up</button>
+    </div>
+
+    <div class="filter-actions">
+      <%= submit_tag "Search items", class: "btn-new toolbar-btn" %>
+      <%= link_to "Clear filters", items_path, class: "btn-secondary" %>
+    </div>
+  <% end %>
+</section>
 
 <div class="items-grid" id="items-grid">
   <% @items.each do |item| %>
@@ -21,15 +98,18 @@
         </div>
       </div>
 
-      <div class="card-content">
-        <h3 class="card-title"><%= item.name %></h3>
-        <p class="card-description"><%= truncate(item.description, length: 50) %></p>
-        <div class="card-price">$<%= item.price %></div>
-        <div class="card-meta">
-          <div class="seller-info">
-            <span><%= item.seller.name || "Unknown" %></span>
+        <div class="card-content">
+          <h3 class="card-title"><%= item.name %></h3>
+          <p class="card-description"><%= truncate(item.description, length: 50) %></p>
+          <div class="card-price">$<%= item.price %></div>
+          <div class="item-status-badge">
+            <%= item.status.presence || "available" %>
           </div>
-          <div>
+          <div class="card-meta">
+            <div class="seller-info">
+              <span><%= item.seller.name || "Unknown" %></span>
+            </div>
+            <div>
             📅 <%= item.post_date %>
           </div>
         </div>
@@ -41,6 +121,6 @@
   <% end %>
 </div>
 
-<div style="display:flex; justify-content: center">
+<div class="market-action-row">
   <%= link_to "Post my own item", new_item_path, class: "btn-new" %>
 </div>
