@@ -1,0 +1,8 @@
+<h1>Forget Password</h1>
+<%= form_with(url: passwords_path, local: true, method: :post) do |form| %>
+  <div class="form-group">
+    <%= form.label :email, "Enter your email address", class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", placeholder: "you@example.com", required: true %>
+  </div>
+  <%= form.submit "Send Verification Code", class: "btn-new" %>
+<% end %>
