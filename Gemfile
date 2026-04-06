@@ -27,8 +27,6 @@ gem "ransack"
 gem "sidekiq"
 gem "redis"
 
-gem "rspec-rails", group: [:development, :test]
-gem "cucumber-rails", group: [:development, :test]
 gem "simplecov", group: :test, require: false
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -72,6 +70,10 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "cucumber-rails", require: false
+  gem "cucumber-rails-training-wheels"
+  gem "rspec-rails"
+  gem "database_cleaner"
   gem "capybara"
   gem "selenium-webdriver"
 end
