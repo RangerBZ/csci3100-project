@@ -37,12 +37,11 @@ class ItemsController < ApplicationController
 
   def create
     new_item_params = item_params()
-    name = new_item_params[:seller_name]
-    new_item_params.delete(:seller_name)
 
     @item = Item.new(new_item_params)
     @item.post_date = Date.current
-    @item.seller_id = User.find_seller_id(name)
+    @item.seller = current_user
+    @item.status = "available"
 
     respond_to do |format|
       if @item.save

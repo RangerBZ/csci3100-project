@@ -858,11 +858,24 @@
     align-items: center;
     padding: 6px 12px;
     border-radius: 999px;
-    background: #ecfdf5;
-    color: #047857;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: capitalize;
+}
+
+.status-available {
+  background-color: #e6fcf5; 
+  color: #0ca678;            
+}
+
+.status-reserved {
+  background-color: #fff4e6; 
+  color: #fd7e14;            
+}
+
+.status-sold {
+  background-color: #f1f3f5; 
+  color: #868e96;            
 }
 
 .card-meta {

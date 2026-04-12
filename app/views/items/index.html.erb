@@ -214,7 +214,7 @@
           <h3 class="card-title"><%= item.name %></h3>
           <p class="card-description"><%= truncate(item.description, length: 50) %></p>
           <div class="card-price">$<%= item.price %></div>
-          <div class="item-status-badge">
+          <div class="item-status-badge status-<%= item.status.presence %>">
             <%= item.status.presence || "available" %>
           </div>
           <div class="card-meta">
