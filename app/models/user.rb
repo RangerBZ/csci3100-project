@@ -59,7 +59,6 @@ class User < ApplicationRecord
     user&.id
   end
 
-
   def generate_password_reset_code!
     self.password_reset_code = rand(100000..999999).to_s
     self.password_reset_expires_at = 1.hour.from_now # datetime()

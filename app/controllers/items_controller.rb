@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item.increment!(:views)
   end
 
   def new
