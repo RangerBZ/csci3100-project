@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   def index
     @active_quick_filters = selected_quick_filters
     @search_filters = effective_search_filters
+    @favorite_item_ids = current_user.present? ? current_user.favorite_items.ids : []
 
     # 先把查询结果加载成数组，避免视图里 count/size 对带 search_rank
     # 自定义 select 的 relation 再次触发 PostgreSQL 计数 SQL。

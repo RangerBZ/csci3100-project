@@ -110,10 +110,10 @@
       </div>
 
       <div class="filter-field">
-        <label for="seller_location">Community</label>
+        <label for="seller_location">College</label>
         <%= select_tag :seller_location,
           options_for_select(
-            [["All communities", ""]] + @seller_locations.map { |location| [location, location] },
+            [["All colleges", ""]] + @seller_locations.map { |location| [location, location] },
             @search_filters[:seller_location]
           ),
           id: "seller_location",
@@ -201,11 +201,12 @@
   <% @items.each do |item| %>
     <div class="item-card" data-item-id="<%= item.id %>" data-category="<%= item.category %>" data-name="<%= item.name.downcase %>">
       <div class="card-head">
-        <div class="card-checkbox">
-          <input type="checkbox" class="item-checkbox" value="<%= item.id %>">
-        </div>
-        <div class="card-badge">
-          <%= item.category %>
+        <div class="card-head-left">
+          <%= render "favorite_toggle", item: item, favorited: @favorite_item_ids.include?(item.id) %>
+
+          <div class="card-badge">
+            <%= item.category %>
+          </div>
         </div>
       </div>
 

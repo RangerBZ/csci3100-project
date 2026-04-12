@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  CUHK_LINK_EMAIL_REGEX = /\A[^@\s]+@link\.cuhk\.edu\.hk\z/i
+
   COLLEGE_LOCATIONS = [
     "Chung Chi College",
     "New Asia College",
@@ -43,8 +45,12 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: { on: :create }, length: { minimum: 6 }
-  validates :password_confirmation, presence: { on: :create }, if: :password_present?
+  validates :email, format: {
+    with: CUHK_LINK_EMAIL_REGEX,
+    message: "must end with @link.cuhk.edu.hk"
+  }
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true, if: :password_present?
 
   def self.find_seller_id(name)
     clean_name = name.to_s.strip

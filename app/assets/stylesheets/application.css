@@ -734,14 +734,12 @@
     display: flex;
     gap: 15px;
     margin-top: 30px;
-}
-
-.item-btn-dummy {
-    flex: 2;
+    justify-content: center;
 }
 
 .item-btn {
     flex: 1;
+    max-width: 220px;
 }
 
 .items-grid {
@@ -771,32 +769,54 @@
 }
 
 .card-head {
-    position: relative;
+    display: flex;
+    align-items: center;
     height: 50px;
-    overflow: hidden;
     background: #d0e0e2;
+    padding: 0 15px;
 }
 
 .item-card:hover {
     transform: scale(1.05);
 }
 
-.card-checkbox {
-    margin-top: 15px;
-    margin-left: 15px;
+.card-head-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.card-checkbox input {
-    width: 20px;
-    height: 20px;
+.favorite-toggle-form {
+    margin: 0;
+}
+
+.favorite-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: #f5a623;
+    font-size: 1.3rem;
+    line-height: 1;
     cursor: pointer;
-    accent-color: #667eea;
+    padding: 0;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite-toggle:hover {
+    transform: scale(1.12);
+    color: #d68f00;
+}
+
+.favorite-toggle-link {
+    color: #8a94a6;
 }
 
 .card-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
     background: rgba(0,0,0,0.7);
     color: white;
     padding: 5px 12px;

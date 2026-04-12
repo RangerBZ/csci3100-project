@@ -157,11 +157,7 @@ class Item < ApplicationRecord
   end
 
   def self.available_seller_locations
-    joins(:seller)
-      .where.not(users: { location: [ nil, "" ] })
-      .distinct
-      .order("users.location ASC")
-      .pluck("users.location")
+    User::COLLEGE_LOCATIONS
   end
 
   def self.sort(relation, sort)
