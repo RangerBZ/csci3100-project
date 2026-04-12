@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
 
   def index
     @favorite_items = current_user.favorite_items
+    @favorites = @favorite_items
   end
 
   def create
