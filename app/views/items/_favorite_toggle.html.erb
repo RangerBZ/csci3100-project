@@ -1,0 +1,31 @@
+<%= turbo_frame_tag dom_id(item, :favorite_toggle) do %>
+  <% if current_user.present? %>
+    <% favorited = local_assigns.fetch(:favorited) { current_user.favorite_items.exists?(id: item.id) } %>
+
+    <% if favorited %>
+      <%= button_to favorite_path(item.id),
+        method: :delete,
+        class: "favorite-toggle",
+        form_class: "favorite-toggle-form",
+        title: "Remove from favorites",
+        aria: { label: "Remove #{item.name} from favorites" } do %>
+        <span aria-hidden="true">★</span>
+      <% end %>
+    <% else %>
+      <%= button_to favorites_path(item_id: item.id),
+        method: :post,
+        class: "favorite-toggle",
+        form_class: "favorite-toggle-form",
+        title: "Add to favorites",
+        aria: { label: "Add #{item.name} to favorites" } do %>
+        <span aria-hidden="true">☆</span>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to "☆",
+      login_path,
+      class: "favorite-toggle favorite-toggle-link",
+      title: "Log in to favorite items",
+      aria: { label: "Log in to favorite #{item.name}" } %>
+  <% end %>
+<% end %>

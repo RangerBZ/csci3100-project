@@ -76,16 +76,7 @@
   </div>
 
   <div class="item-btn-container">
-    <div class="item-btn-dummy"></div>
-    <% if current_user.present? %>
-      <% if current_user.favorite_items.include?(@item) %>
-        <%= button_to "Favorited", favorite_path(@item.id), method: :delete, data: { confirm: "Remove this item from favorites?", turbo: false }, class: "btn-new item-btn" %>
-      <% else %>
-        <%= button_to "Favorite", favorites_path(item_id: @item.id), method: :post, class: "btn-new item-btn", data: { turbo: false } %>
-      <% end %>
-    <% end %>
     <%= link_to "Purchase", "#", class: "btn-new item-btn" %>
     <%= link_to "← Back to Market", items_path, class: "btn-new item-btn" %>
-    <div class="item-btn-dummy"></div>
   </div>
 </div>
