@@ -1,0 +1,56 @@
+Style/Encoding:
+  Enabled: false
+
+Lint/AmbiguousOperator:
+  Enabled: false
+
+Layout/CaseIndentation:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+  Max: 10
+
+Style/Documentation:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: true
+  Max: 160
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/NestedTernaryOperator:
+  Enabled: false
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false

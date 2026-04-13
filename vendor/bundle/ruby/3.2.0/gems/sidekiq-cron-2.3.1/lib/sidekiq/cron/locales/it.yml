@@ -1,0 +1,22 @@
+it:
+  AreYouSureDeleteCronJob: Vuoi cancellare il cron job '%{job}'?
+  AreYouSureDeleteCronJobs: Vuoi cancellare TUTTI i cron job?
+  AreYouSureEnqueueCronJob: Vuoi accodare il cron job '%{job}'?
+  AreYouSureEnqueueCronJobs: Vuoi accodare TUTTI i cron job?
+  Cron: Cron
+  CronJobs: Cron Jobs
+  CronString: Cron
+  DeleteAll: Cancella tutto
+  Description: Descrizione
+  Disable: Disattiva
+  DisableAll: Disattiva tutto
+  Enable: Attiva
+  EnableAll: Attiva tutto
+  EnqueueAll: Accoda tutto
+  EnqueueNow: Accoda
+  Job: Job
+  LastEnqueued: Ultimo accodamento
+  NoCronJobsWereFound: Nessun cron job trovato
+  NoHistoryWereFound: Nessun evento in cronologia
+  disabled: disattivato
+  enabled: attivato

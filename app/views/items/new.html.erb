@@ -18,6 +18,17 @@
       <p>Share your item with the community!</p>
     </div>
 
+    <% if @item.errors.any? %>
+      <div style="background: #fed7d7; padding: 12px; border-radius: 8px; margin-bottom: 20px; color: #742a2a;">
+        ⚠️ <%= pluralize(@item.errors.count, "error") %> prohibited this item from being posted:
+        <ul>
+          <% @item.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= render "form", item: @item %>
   </div>
 </div>

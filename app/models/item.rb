@@ -6,6 +6,11 @@ class Item < ApplicationRecord
 
   has_one_attached :photo
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :category, presence: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
+
   SEARCH_SORT_OPTIONS = {
     "relevance" => "relevance",
     "newest" => "newest",
