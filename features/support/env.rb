@@ -1,3 +1,10 @@
+require "simplecov"
+SimpleCov.start "rails" do
+  add_filter "/bin/"
+  add_filter "/db/"
+  add_filter "/spec/"
+end
+
 require "cucumber/rails"
 
 ActionController::Base.allow_rescue = false

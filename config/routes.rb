@@ -1,11 +1,16 @@
-require 'sidekiq/web'
+require "sidekiq/web"
 
 Rails.application.routes.draw do
-  mount Sidekiq::Web => '/sidekiq'
+  mount Sidekiq::Web => "/sidekiq"
   
   root "sessions#new"
   get "/analytics", to: "analytics#index"
   resources :items do
+    member do
+      patch :purchase
+      patch :reserve
+    end
+
     collection do
       get :autocomplete
     end

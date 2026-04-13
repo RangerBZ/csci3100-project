@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   has_many :favorited_items, through: :favorites, source: :user
 
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
+  belongs_to :reserver, class_name: "User", foreign_key: "reserver_id", optional: true
 
   has_one_attached :photo
 
@@ -27,8 +28,6 @@ class Item < ApplicationRecord
     quoted_contains = connection.quote("%#{sanitize_sql_like(stripped_keyword)}%")
     threshold = 0.18
 
-    # 这里显式拼接 SQL，是为了让 trigram 相似度表达式更稳定，
-    # 避免复杂的 sanitize_sql_array 在 GREATEST/AS alias 场景下生成非法 SQL。
     search_rank_sql = <<~SQL.squish
       GREATEST(
         similarity(items.name, #{quoted_query}),

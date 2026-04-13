@@ -54,6 +54,28 @@ class ItemsController < ApplicationController
     end
   end
 
+  def purchase
+    @item = Item.find(params[:id])
+
+    if @item.update(status: "sold")
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to @item }
+      end
+    end
+  end
+
+  def reserve
+    @item = Item.find(params[:id])
+
+    if @item.update(status: "reserved", reserver: current_user)
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to @item }
+      end
+    end
+  end
+
   private
     def set_item
       @item = Item.find(params[:id])

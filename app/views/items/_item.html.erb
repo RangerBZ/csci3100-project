@@ -76,7 +76,26 @@
   </div>
 
   <div class="item-btn-container">
-    <%= link_to "Purchase", "#", class: "btn-new item-btn" %>
+    <% if @item.status == "available" || (@item.status == "reserved" && @item.reserver == current_user) %>
+      <%= link_to "Purchase", purchase_item_path(@item), 
+                  data: { 
+                    turbo_method: :patch,
+                    controller: "purchase", 
+                    action: "click->purchase#showSuccess" 
+                  }, 
+                  class: "btn-new item-btn" %>
+    <% end %>
+
+    <% if @item.status == "available" %>
+      <%= link_to "Reserve", reserve_item_path(@item), 
+                  data: { 
+                    turbo_method: :patch,
+                    controller: "reserve", 
+                    action: "click->reserve#showSuccess" 
+                  }, 
+                  class: "btn-new item-btn" %>
+    <% end %>
+    
     <%= link_to "← Back to Market", items_path, class: "btn-new item-btn" %>
   </div>
 </div>
