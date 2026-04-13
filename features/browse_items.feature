@@ -7,9 +7,9 @@ Feature: user can create items and see items created
 Scenario: valid registration
 
   Given I am on the home page
-  When I registered account "alice" with email name "1155111111", password "111111"
-  When I registered account "bob" with email name "1155222222", password "111111"
-  When I registered account "cathy" with email name "1155333333", password "111111"
+  When I registered account "alice" with email name "1155111111", password "111111", location "Chung Chi College"
+  When I registered account "bob" with email name "1155222222", password "111111", location "United College"
+  When I registered account "cathy" with email name "1155333333", password "111111", location "New Asia College"
   When the following items exists:
     | name     | category    | price | owner |
     | battery  | Electronics | 10    | alice |
@@ -27,3 +27,15 @@ Scenario: valid registration
   When I select "Price: low to high" from "sort"
   When I press "Search items"
   Then "battery" should appear before "fan"
+  Then "battery" should appear before "scissors"
+  Then "fan" should appear before "textbook"
+  Then "scissors" should appear before "textbook"
+  When I select "Furniture" from "category"
+  When I press "Search items"
+  Then I should see "fan"
+  Then I should not see "battery"
+  When I select "All categories" from "category"
+  When I select "New Asia College" from "seller_location"
+  When I press "Search items"
+  Then I should see "scissors"
+  Then I should not see "fan"
