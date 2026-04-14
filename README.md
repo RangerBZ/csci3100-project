@@ -133,15 +133,15 @@ The table below summarizes the features currently implemented in the codebase. P
 | --- | --- | --- | --- |
 | Basic CRUD Feature | Main menu + Item display + Post item + Edit user profile + Naive purchase and reserve function | `LI Xiaodong` | `BING Zhe` |
 | Account Register and Login, Control Logic | Register with name, email, location and password; Login with name and password, reset password etc. | `LI Xiaodong` | `BING Zhe` |
-| Search and Filtering | Search by keyword and filter by category, status, seller location, price range, and recent posting days | ``HUANG Ruilin`` | `[Fill in]` |
+| Search and Filtering | Search by keyword and filter by category, status, seller location, price range, and recent posting days | ``HUANG Ruilin`` | `N. A.` |
 | Favorite Systems | Add to/Remove from favorites, and view favorite list | `ZHANG Beichen` | `HUANG Ruilin` |
-| PostgreSQL Database | Resolve migration, PostgreSQL connection | `[Fill in]` | `[Fill in]` |
-| Advanced Feature: Analytics | View charts and summaries for listing activity, categories, status, pricing, and community activity | `HUANG Ruilin` | `[Fill in]` |
-| Advanced Feature: Search | Fuzzy search, Auto-complete | `HUANG Ruilin` | `[Fill in]` |
-| Advanced Feature: external APIs | Mapbox for location maps, SendGrid email verification | `BING Zhe` | `N.A` |
-| Advanced Feature: Sidekiq/Redis | Sidekiq/Redis for background jobs and scheduled tasks | `ZHANG Beichen` | `[Fill in]` |
-| Cucumber tests | Cucumber tests in folder "features", including _steps.rb (except for web_steps.rb) and all .features files | `ZHU Ruizheng` | `[Fill in]` |
-| RSpec tests | RSpec tests for controllers and models | `ZHU Ruizheng` | `[Fill in]` |
+| PostgreSQL Database | Resolve migration, PostgreSQL connection | `ZhANG Beichen` | `Others` |
+| Advanced Feature: Analytics | View charts and summaries for listing activity, categories, status, pricing, and community activity | `HUANG Ruilin` | `N. A.` |
+| Advanced Feature: Search | Fuzzy search, Auto-complete | `HUANG Ruilin` | `N. A.` |
+| Advanced Feature: external APIs | Mapbox for location maps, SendGrid email verification | `BING Zhe` | `N. A.` |
+| Advanced Feature: Sidekiq/Redis | Sidekiq/Redis for background jobs and scheduled tasks | `ZHANG Beichen` | `N. A.` |
+| Cucumber tests | Cucumber tests in folder "features", including _steps.rb (except for web_steps.rb) and all .features files | `ZHU Ruizheng` | `N. A.` |
+| RSpec tests | RSpec tests for controllers and models | `ZHU Ruizheng` | `N. A.` |
 
 
 ## SimpleCov Report Screenshots
@@ -155,10 +155,10 @@ SimpleCov Report Path for Cucumber: docs/coverage2.png
 ## Demo / Deployment
 
 - Demo URL: <https://csci3100-proj.onrender.com/>
-- Demo video: `[Fill in]`
+- Demo video: `handed later in BlackBoard`
 
 ## Side notes
-- The SendGrid API offcial sending requires a formal domain name, this project only uses single sender API, so it comes from personal .gmail address. Possibly needs to look up in trash mail folder. Email send might take up to 5 minutes.
+- The SendGrid API offcial sending requires a formal domain name, this project only uses single sender API, so it comes from personal .gmail address. Possibly needs to look up in trash mail folder. Email send might take up to 5 minutes. (The sendGrid may throw 404 in our tests for continous sends / invalid address / exceeds respond ratio)
 - Access to the Sidekiq dashboard (for background job monitoring) is strictly restricted to Admin users only. Regular users are denied access to ensure system security and prevent unauthorized operation monitoring.
 - Users can choose to purchase or reserve items. Once they have reserved an item, it could not be purchased or reserved by any other users.
 - Only the user who posted the item can delete it.
