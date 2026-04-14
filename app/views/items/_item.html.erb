@@ -20,7 +20,7 @@
     <div class="item-layout">
       <div class="image-section">
         <% if @item.photo.attached? %>
-          <%= image_tag @item.photo, class:"main-image" %>
+          <%= image_tag @item.photo, class:"main-image", alt: @item.name %>
         <% else %>
           <div class="no-image">
             <div class="no-image-icon">📷</div>

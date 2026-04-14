@@ -86,7 +86,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_13_122619) do
     t.string "email"
     t.string "location"
     t.string "name"
-    t.string "password"
     t.string "password_digest"
     t.string "password_reset_code"
     t.datetime "password_reset_expires_at"
