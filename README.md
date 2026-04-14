@@ -151,8 +151,8 @@ The table below summarizes the features currently implemented in the codebase. P
 Example Markdown:
 
 ```md
-![SimpleCov Report for Rspec](docs/coverage1.png)
-![SimpleCov Report for Cucumber](docs/coverage2.png)
+![SimpleCov Report for Rspec](./docs/coverage1.png)
+![SimpleCov Report for Cucumber](./docs/coverage2.png)
 ```
 
 You can also add a short note below the screenshot:
