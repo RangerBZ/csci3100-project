@@ -113,7 +113,7 @@ http://localhost:3000
 Run Rails tests:
 
 ```bash
-bin/rails rspec
+bundle exec rspec
 ```
 
 Run Cucumber features:
