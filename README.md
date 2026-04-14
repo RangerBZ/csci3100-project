@@ -144,19 +144,13 @@ The table below summarizes the features currently implemented in the codebase. P
 | RSpec tests | RSpec tests for controllers and models | `ZHU Ruizheng` | `[Fill in]` |
 
 
-## SimpleCov Report Screenshot
+## SimpleCov Report Screenshots
 
-`TODO:` Replace the placeholder below with your actual SimpleCov report screenshot.
-
-Example Markdown:
-
-```md
-![SimpleCov Report](docs/simplecov-report.png)
+```
+SimpleCov Report Path for Rspec: docs/coverage1.png
+SimpleCov Report Path for Cucumber: docs/coverage2.png
 ```
 
-You can also add a short note below the screenshot:
-
-`TODO:` Coverage summary: `[e.g. 92.4% line coverage on April 14, 2026]`
 
 ## Demo / Deployment
 
