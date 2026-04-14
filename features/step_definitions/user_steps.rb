@@ -19,6 +19,11 @@ When /^I remove the item "([^"]*)" to favorites$/ do |name|
   expect(find("div[data-name='#{name}']").text).to have_content('☆')
 end
 
+When /^I follow "([^"]*)" in "([^"]*)"$/ do |text,name|
+  expect(find("div[data-name='#{name}']").text).to have_content(text)
+  find("div[data-name='#{name}']").click_link(text)
+end
+
 When /^I log out$/ do
   click_link("Log Out")
 end

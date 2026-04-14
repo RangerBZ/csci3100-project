@@ -27,3 +27,7 @@ Then /^I should see all items$/ do
     expect(page.body).to have_content(item_params[:name])
   end
 end
+
+Then /^item "([^"]*)" should be in state "([^"]*)"$/ do |name, state|
+  expect(find("div[data-name='#{name}']").text).to have_content(state)
+end
