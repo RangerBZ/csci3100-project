@@ -3,18 +3,17 @@ class ItemsController < ApplicationController
   before_action :set_user, only: %i[ index show new edit ]
 
   def index
-    @items = Item.includes(:seller).all
-    if @user&.location.present?
-      @items = @items.sort_by { |item| custom_sort_priority(item, @user.location) }
-    end
-
     @active_quick_filters = selected_quick_filters
     @search_filters = effective_search_filters
     @favorite_item_ids = current_user.present? ? current_user.favorite_items.ids : []
 
+    @items = Item.search(@search_filters).to_a
+    if @user&.location.present? && !(@search_filters[:sort].presence)
+      @items = @items.sort_by { |item| custom_sort_priority(item, @user.location) }
+    end
+
     # 先把查询结果加载成数组，避免视图里 count/size 对带 search_rank
     # 自定义 select 的 relation 再次触发 PostgreSQL 计数 SQL。
-    @items = Item.search(@search_filters).to_a
     @autocomplete_suggestions = if @search_filters[:keyword].present?
       Item.autocomplete(@search_filters[:keyword], limit: 8)
     else
