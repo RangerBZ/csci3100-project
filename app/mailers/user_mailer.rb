@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "dereklxd514@gmail.com" # the single verified email in SendGrid
+  default from: "bingzhe28@hotmail.com" # the single verified email in SendGrid
 
   def password_reset_code(user, code)
     @user = user
@@ -22,7 +22,7 @@ class UserMailer < ApplicationMailer
     return unless @user && @user.email
     
 
-    from_email = "dereklxd514@gmail.com"  # or: self.class.default[:from]
+    from_email = "bingzhe28@hotmail.com"  # or: self.class.default[:from]
     
     from = SendGrid::Email.new(email: from_email)
     to = SendGrid::Email.new(email: @user.email)
