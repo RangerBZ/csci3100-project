@@ -1,8 +1,8 @@
-# Campus Trade
+# Market Place
 
 ## Project Overview
 
-Campus Trade is a secondhand trading website for the Chinese University of Hong Kong community.
+Market Place is a secondhand trading website for the Chinese University of Hong Kong community.
 
 ## Team
 
