@@ -2,9 +2,7 @@
 
 ## Project Overview
 
-Campus Trade is a Ruby on Rails marketplace web application for the CUHK community. It allows users to register with a `@link.cuhk.edu.hk` email address, sign in, publish items, browse listings, save favorites, and explore marketplace activity through analytics and location pages.
-
-`TODO:` Add 2-4 sentences here to describe your product goal, target users, and the main problem your team is solving.
+Campus Trade is a secondhand trading website for the Chinese University of Hong Kong community.
 
 ## Team
 
@@ -144,9 +142,11 @@ The table below summarizes the features currently implemented in the codebase. P
 
 | Feature | Description | Primary Contributor | Other Contributors|
 | --- | --- | --- | --- |
+
 | Login email restrictions | Register with validated `@link.cuhk.edu.hk` email | `HUANG Ruilin` | `[Fill in]` |
-
-
+| Advanced Feature: Analytics |  View charts and summaries for listing activity, categories, status, pricing, and community activity| `HUANG Ruilin` | `[Fill in]` |
+| Advanced Feature: Search|  Fuzzy search,Auto-complete | `HUANG Ruilin` | `[Fill in]` |
+| Search and filtering | Search by keyword and filter by category, status, seller location, price range, and recent posting days | `[Fill in]` | `[Fill in]` |
 
 ## SimpleCov Report Screenshot
 
@@ -168,11 +168,4 @@ You can also add a short note below the screenshot:
 
 - Demo URL: `[Fill in]`
 - Demo video: `[Fill in]`
-
-## Notes for Markers
-
-- Default database names in `config/database.yml` are `campus_trade_development` and `campus_trade_test`.
-- Redis is required for Sidekiq-related features.
-- Some features depend on external tokens or services, especially SendGrid and Mapbox.
-- Seed data is intended for development/test usage.
 
