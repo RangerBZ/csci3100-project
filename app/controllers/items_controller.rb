@@ -141,7 +141,7 @@ class ItemsController < ApplicationController
         # For users from location A: prioritize items from A, then C, then others
         case item.seller.location
         when "United College" then 0  # Highest priority
-        when "New Aisa College" then 1  # Second priority
+        when "New Asia College" then 1  # Second priority
         else 2           # Lowest priority
         end
       when "Chung Chi College"
