@@ -254,7 +254,7 @@ end
 puts "Finished! Created #{locations_list.count} locations."
 
 # Create admin user (safe for dev/test only)
-if Rails.env.development? || Rails.env.test?
+if Rails.env.development? || Rails.env.test? || Rails.env.production?
   admin = User.find_or_initialize_by(name: 'admin_Bin')
   if admin.new_record?
     admin.assign_attributes(
