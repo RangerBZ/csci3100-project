@@ -59,7 +59,9 @@ Notes:
 - `SENDGRID_API_KEY` is needed for the password reset email feature.
 - `MAPBOX_TOKEN` is needed for the location map pages.
 - `ADMIN_PASSWORD` is used by the seeded admin account in development/test.
-
+- Note here the provide our API for local testing:
+- SENDGRID_API_KEY=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
+- MAPBOX_TOKEN=pk.eyJ1IjoiYmluZ2VsaWhhaSIsImEiOiJjbW52aDNsYWYxOWRpMm9xMHJrcTVwMTFsIn0.C916ueESOO6wUK09IhGz5Q
 ### 5. Prepare the Database
 
 ```bash
